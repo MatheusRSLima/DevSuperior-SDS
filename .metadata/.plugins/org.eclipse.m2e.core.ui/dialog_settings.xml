@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Dev\DvSuperior\Backend"/>
 			<item value="C:\Dev\DvSuperior\dspesquisa"/>
 		</list>
 		<list key="projectNameTemplate">
