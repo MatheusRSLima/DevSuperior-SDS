@@ -1,0 +1,47 @@
+package com.devsuperior.dspesquisa.services;
+
+import java.time.Instant;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+import com.devsuperior.dspesquisa.dto.GameDTO;
+import com.devsuperior.dspesquisa.dto.RecordDTO;
+import com.devsuperior.dspesquisa.dto.RecordInsertDTO;
+import com.devsuperior.dspesquisa.entities.Game;
+import com.devsuperior.dspesquisa.entities.Record;
+import com.devsuperior.dspesquisa.repositories.GameRopository;
+import com.devsuperior.dspesquisa.repositories.RecordRopository;
+import com.devsuperior.dspesquisa.resources.GameResource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+public class RecordService {
+
+    @Autowired
+    private RecordRopository repository;
+
+    @Autowired
+    private GameRopository gameRepository;
+
+    @Transactional
+    public RecordDTO insert(RecordInsertDTO dto) {
+        
+        Record entity = new Record();
+
+        entity.setName(dto.getName());
+        entity.setAge(dto.getAge());
+        entity.setMoment(Instant.now());
+
+        Game game = gameRepository.getOne(dto.getGameId());
+        entity.setGame(game);
+
+        entity = repository.save(entity);
+        return new RecordDTO(entity);
+    }
+
+	
+}

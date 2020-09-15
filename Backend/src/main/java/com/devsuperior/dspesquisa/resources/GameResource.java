@@ -9,18 +9,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.devsuperior.dspesquisa.dto.GameDTO;
-import com.devsuperior.dspesquisa.entities.Game;
-import com.devsuperior.dspesquisa.repositories.GameRopository;
 import com.devsuperior.dspesquisa.services.GameService;
 
 @RestController
-@RequestMapping(value="/games")
+@RequestMapping(value = "/games")
 public class GameResource {
+	
 	@Autowired
 	private GameService service;
+	
 	@GetMapping
-	public ResponseEntity<List<GameDTO>> findAll() {
+	public ResponseEntity<List<GameDTO>> findAll(){
 		List<GameDTO> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
+	
+
 }
