@@ -1,10 +1,11 @@
-package com.devsuperior.dspesquisa;
 
-@SpringBootTest
-class DspesquisaApplicationTests {
+//package com.dvsuperior.dspesquisa;
 
-	@Test
-	void contextLoads() {
-	}
+//@SpringBootTest
+//class DspesquisaApplicationTests {
 
-}
+	//@Test
+	//void contextLoads() {
+	////}
+
+//}
